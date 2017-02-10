@@ -232,6 +232,11 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.2-service.clearkey
 
+# FM
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni
+
 # Framework detect
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
