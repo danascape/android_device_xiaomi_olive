@@ -17,6 +17,10 @@
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/xiaomi/olive/olive-vendor.mk)
 
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
+
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := olive,olivelite,olivewood
 
