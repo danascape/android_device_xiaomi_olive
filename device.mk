@@ -96,6 +96,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
 
+# Display Calibrators
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/display/qdcm_calib_data_ft8006s_hdplus_c3i_video_mode_dsi_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_ft8006s_hdplus_c3i_video_mode_dsi_panel.xml \
+    $(LOCAL_PATH)/configs/display/qdcm_calib_data_ili9881h_hdplus_c3i_video_mode_dsi_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_ili9881h_hdplus_c3i_video_mode_dsi_panel.xml \
+    $(LOCAL_PATH)/configs/display/qdcm_calib_data_nvt36525b_hdplus_c3i_video_mode_dsi_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_nvt36525b_hdplus_c3i_video_mode_dsi_panel.xml
+
 # Framework detect
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
