@@ -51,6 +51,9 @@ fi
 # Override USB default composition
 #
 # If USB persist config not set, set default configuration
+dserial=`getprop ro.debuggable`
+dfactory=`getprop ro.factory_version`
+
 if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 	"$(getprop init.svc.vendor.usb-gadget-hal-1-0)" != "running" ]; then
     if [ "$esoc_name" != "" ]; then
@@ -80,7 +83,21 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 		      ;;
 	              "msm8937")
 			    if [ -d /config/usb_gadget ]; then
-				       setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
+                    case "$dfactory" in
+                        "true")
+                             setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
+                             ;;
+                         *)
+                             case "$dserial" in
+                                 "0")
+                                     #setprop persist.vendor.usb.config mtp
+                                     ;;
+                                  *)
+                                     setprop persist.vendor.usb.config adb
+                                     ;;
+                            esac
+                                    ;;
+                    esac
 			    else
 			               case "$soc_id" in
 				               "313" | "320")
